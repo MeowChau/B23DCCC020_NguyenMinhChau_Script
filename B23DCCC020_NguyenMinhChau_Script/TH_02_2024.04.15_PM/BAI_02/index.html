@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>BAI_02</h2>
+
+<p id="demo"></p>
+
+<script>
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var maxNumber = Math.max(...numbers);
+var perfectSquares = numbers.filter(num => Math.sqrt(num) % 1 === 0);
+var average = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+
+var greaterThanAverage = numbers.filter(num => num > average);
+
+var nonNegativeNumbers = numbers.filter(num => num >= 0);
+var averageNonNegative = nonNegativeNumbers.reduce((a, b) => a + b, 0) / nonNegativeNumbers.length;
+
+document.getElementById("demo").innerHTML = 'Số nguyên lớn nhất trong mảng: ' + maxNumber + '<br>' +
+                                             'Các số chính phương trong mảng: ' + perfectSquares + '<br>' +
+                                             'Các số lớn hơn trung bình cộng của mảng: ' + greaterThanAverage + '<br>' +
+                                             'Trung bình cộng của các số không âm của mảng: ' + averageNonNegative;
+</script>
+
+</body>
+</html>
