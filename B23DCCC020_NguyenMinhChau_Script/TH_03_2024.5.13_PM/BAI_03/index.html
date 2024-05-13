@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        .slider {
+            width: 100%;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            flex: 0 0 100%;
+        }
+        
+        .buttons {
+            text-align: center;
+        }
+        .btn {
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var slideIndex = 0;
+            var slides = $(".slide");
+            var totalSlides = slides.length;
+
+            showSlide(slideIndex);
+
+            $(".next").click(function() {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                showSlide(slideIndex);
+            });
+
+            $(".back").click(function() {
+                slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+                showSlide(slideIndex);
+            });
+
+            setInterval(function() {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                showSlide(slideIndex);
+            }, 5000);
+
+            function showSlide(index) {
+                $(".slides").css("transform", "translateX(-" + index * 100 + "%)");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="https://unsplash.it/1280/720/?image=120" alt="Slide 1"></div>
+            <div class="slide"><img src="https://unsplash.it/1280/720/?image=70" alt="Slide 2"></div>
+            <div class="slide"><img src="https://unsplash.it/1280/720/?image=50" alt="Slide 3"></div>
+            <div class="slide"><img src="https://unsplash.it/1280/720/?image=170" alt="Slide 4"></div>
+            <div class="slide"><img src="https://unsplash.it/1280/720/?image=190" alt="Slide 5"></div>
+        </div>
+        <div class="buttons">
+            <button class="btn back">Back</button>
+            <button class="btn next">Next</button>
+        </div>
+    </div>
+</body>
+</html>

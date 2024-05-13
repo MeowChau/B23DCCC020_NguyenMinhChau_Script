@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Lấy nội dung ban đầu của div
+            var contentA = $("#content").html();
+
+            // Xử lý sự kiện khi nhấp vào nút "Thay đổi"
+            $("button").click(function() {
+                // Thay đổi nội dung của div thành nội dung B
+                $("#content").html(`
+                    <h3>UDU</h3>
+                    <div>UDU students are dynamic and creative !!!</div>
+                `);
+            });
+
+            // Xử lý sự kiện khi nhấp vào nút "Hoàn tác"
+            $("#undo").click(function() {
+                // Khôi phục lại nội dung ban đầu của div
+                $("#content").html(contentA);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h3>UDU</h3>
+        <div>Sinh viên UDU năng động sáng tạo.</div>
+    </div>
+    <button type="button">Thay đổi</button>
+    <button id="undo" type="button">Hoàn tác</button>
+</body>
+</html>
